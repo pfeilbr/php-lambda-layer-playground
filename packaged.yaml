@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: My PHP Application
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  phpserver:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:
+        Fn::Sub: ${AWS::StackName}-phpserver
+      Description: PHP Webserver
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-13v3pefdyn46p/0437606fb2e5df6be3af0db011d62624
+      Runtime: provided
+      Handler: index.php
+      MemorySize: 3008
+      Timeout: 30
+      Tracing: Active
+      Layers:
+      - Fn::Sub: arn:aws:lambda:${AWS::Region}:887080169480:layer:php73:3
+      Events:
+        api:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+Outputs:
+  ApiGatewayEndpoint:
+    Description: API Prod stage endpoint
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
