@@ -28,6 +28,9 @@ API_GATEWAY_ENDPOINT=$(aws cloudformation --region "${REGION}" describe-stacks -
 
 # test
 curl "${API_GATEWAY_ENDPOINT}index.php" # Hello World! You've reached /index.php
+
+# delete stack
+aws cloudformation delete-stack --region "${REGION}" --stack-name "${STACK_NAME}"
 ```
 
 ## Resources
