@@ -2,7 +2,10 @@
 
 learn [stackery/php-lambda-layer](https://github.com/stackery/php-lambda-layer) for running PHP on lambda
 
-see [src/php/index.php](src/php/index.php) and [src/php/php.ini](src/php/php.ini) (for enabled extensions)
+* [src/php/index.php](src/php/index.php)
+* [src/php/php.ini](src/php/php.ini) - for enabled extensions
+* [template.yaml](template.yaml)
+* [packaged.yaml](packaged.yaml) - *generated via sam*
 
 **Session**
 
