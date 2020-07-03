@@ -12,6 +12,15 @@ Resources:
       Handler: index.php
       MemorySize: 3008
       Timeout: 30
+      Policies:
+        - AWSLambdaExecute
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:List*
+                - s3:Get*
+              Resource: "*"
       Tracing: Active
       Layers:
         - !Sub arn:aws:lambda:${AWS::Region}:887080169480:layer:php73:3

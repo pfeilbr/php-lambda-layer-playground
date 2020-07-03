@@ -1,3 +1,19 @@
+<?php 
+require __DIR__ . '/vendor/autoload.php';
+
+use Aws\S3\S3Client;
+$s3 = new Aws\S3\S3Client([
+    'version' => 'latest',
+    'region' => 'us-east-1'
+]);
+
+$buckets = $s3->listBuckets([]);
+foreach ($buckets['Buckets'] as $bucket) {
+    echo $bucket['Name'] . "\n";
+}
+
+?>
+
 Hello World! You've reached <?php print($_SERVER['REQUEST_URI']); ?>
 
 <br />
@@ -17,7 +33,7 @@ while (list($var,$value) = each ($_ENV)) {
 <pre>
     <code>
 <?php
-var_dump(get_defined_vars());
+//var_dump(get_defined_vars());
 ?>
     </code>
 </pre>

@@ -8,11 +8,20 @@ Resources:
       FunctionName:
         Fn::Sub: ${AWS::StackName}-phpserver
       Description: PHP Webserver
-      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-13v3pefdyn46p/0437606fb2e5df6be3af0db011d62624
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-13v3pefdyn46p/c8e327fa5d2dfdfcfa30f383f9566112
       Runtime: provided
       Handler: index.php
       MemorySize: 3008
       Timeout: 30
+      Policies:
+      - AWSLambdaExecute
+      - Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - s3:List*
+          - s3:Get*
+          Resource: '*'
       Tracing: Active
       Layers:
       - Fn::Sub: arn:aws:lambda:${AWS::Region}:887080169480:layer:php73:3
