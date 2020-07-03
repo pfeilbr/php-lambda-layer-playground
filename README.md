@@ -2,6 +2,11 @@
 
 learn [stackery/php-lambda-layer](https://github.com/stackery/php-lambda-layer) for running PHP on lambda
 
+**Prerequisites**
+
+* [php](https://www.php.net/) 7.x
+* [composer](https://getcomposer.org/) installed globally (used by makefile)
+
 **Key Files**
 
 * [src/php/index.php](src/php/index.php)

@@ -4,6 +4,7 @@ STACK_NAME=my-first-serverless-php-service
 
 .PHONY: package
 package:
+	pushd src/php && composer install && popd
 	sam package \
     --template-file template.yaml \
     --output-template-file packaged.yaml \
